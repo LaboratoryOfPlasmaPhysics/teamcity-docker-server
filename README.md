@@ -10,7 +10,18 @@ You can pull the official ready-to-use image from the Docker Hub repository
 If you need to build your own image, you need to perform the following:
 
    ```
-    docker build -t teamcity-server
+    docker build -t lpp/teamcity-server .
    ```
+
+Use the following command to start a container
+
+``` 
+docker run -it --name teamcity-server-instance  \
+    -v <path to data directory>:/data/teamcity_server/datadir \
+    -v <path to logs directory>:/opt/teamcity/logs  \
+    -v <path to ssl certs directory>:/certs  \
+    -p <port on host>:8111 \
+    lpp/teamcity-server
+```
 
 See [detailed instructions](https://hub.docker.com/r/jetbrains/teamcity-server/) on how to use the image in the Docker Hub repository .

@@ -2,7 +2,7 @@ FROM fedora
 LABEL maintainer "Kateryna Shlyakhovetska <shkate@jetbrains.com>"
 LABEL modified "Alexis Jeandet <alexis.jeandet@member.fsf.org>"
 
-RUN dnf install -y java-1.8.0-openjdk mercurial git tar gzip
+RUN dnf install -y java-1.8.0-openjdk mercurial git tar gzip tomcat apr
 
 
 ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
@@ -20,6 +20,7 @@ LABEL dockerImage.teamcity.version="latest" \
 
 COPY run-server.sh /run-server.sh
 COPY run-services.sh /run-services.sh
+COPY server.xml  $TEAMCITY_DIST/conf/server.xml
 RUN chmod +x /run-server.sh /run-services.sh && sync
 
 ADD https://jdbc.postgresql.org/download/postgresql-42.1.1.jar /data/teamcity_server/datadir/lib/jdbc/
