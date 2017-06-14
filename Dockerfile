@@ -25,6 +25,8 @@ RUN chmod +x /run-server.sh /run-services.sh && sync
 
 ADD https://jdbc.postgresql.org/download/postgresql-42.1.1.jar /data/teamcity_server/datadir/lib/jdbc/
 
+RUN mv $TEAMCITY_DIST/webapps/ROOT $TEAMCITY_DIST/webapps/teamcity
+
 VOLUME $TEAMCITY_DATA_PATH \
        $TEAMCITY_LOGS
 
