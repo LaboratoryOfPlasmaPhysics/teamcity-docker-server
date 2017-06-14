@@ -82,6 +82,24 @@
                SSLVerifyClient="optional" SSLProtocol="TLSv1+TLSv1.1+TLSv1.2"
                scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS"
+               ciphers="TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+                        TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+                        TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,
+                        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,
+                        TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,
+                        TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,
+                        TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+                        TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+                        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,
+                        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,
+                        TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,
+                        TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,
+                        TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,
+                        TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,
+                        TLS_DHE_RSA_WITH_AES_128_CBC_SHA,
+                        TLS_DHE_RSA_WITH_AES_256_CBC_SHA,
+                        TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,
+                        TLS_DHE_RSA_WITH_AES_256_CBC_SHA256"
         />
 
     <!-- Uncomment if connector with Http11NioProtocol does not work reliably  -->
