@@ -1,4 +1,4 @@
-FROM fedora
+FROM fedora:27
 LABEL maintainer "Kateryna Shlyakhovetska <shkate@jetbrains.com>"
 LABEL modified "Alexis Jeandet <alexis.jeandet@member.fsf.org>"
 
