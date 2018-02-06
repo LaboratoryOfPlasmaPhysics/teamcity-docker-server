@@ -9,7 +9,7 @@ ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_DIST=/opt/teamcity \
     TEAMCITY_LOGS=/opt/teamcity/logs
     
-ADD https://download.jetbrains.com/teamcity/TeamCity-2017.2.1.tar.gz $TEAMCITY_DIST/
+ADD https://download.jetbrains.com/teamcity/TeamCity-2017.2.2.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
 RUN rm $TEAMCITY_DIST/TeamCity-*.tar.gz
 RUN mv $TEAMCITY_DIST/TeamCity/* $TEAMCITY_DIST
