@@ -26,3 +26,4 @@ done
 
 tail -F "${TEAMCITY_DIST}/logs/teamcity-server.log" &
 wait
+
