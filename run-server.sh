@@ -12,6 +12,8 @@ if [[ "$TEAMCITY_CONTEXT" != "ROOT" ]]; then
     [[ "$current" != "$TEAMCITY_CONTEXT" ]] && mv "${TEAMCITY_DIST}/webapps/$current" "${TEAMCITY_DIST}/webapps/$TEAMCITY_CONTEXT"
 fi
 
+export TEAMCITY_SERVER_MEM_OPTS='-Xmx4g -XX:ReservedCodeCacheSize=350m'
+
 trap "'${TEAMCITY_DIST}/bin/teamcity-server.sh' stop; exit 0;" SIGTERM SIGINT SIGHUP
 
 "${TEAMCITY_DIST}/bin/teamcity-server.sh" start
