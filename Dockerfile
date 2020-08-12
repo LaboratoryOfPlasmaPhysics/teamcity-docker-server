@@ -1,4 +1,4 @@
-FROM fedora:29
+FROM fedora:32
 LABEL maintainer "Kateryna Shlyakhovetska <shkate@jetbrains.com>"
 LABEL modified "Alexis Jeandet <alexis.jeandet@member.fsf.org>"
 
@@ -9,7 +9,7 @@ ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_DIST=/opt/teamcity \
     TEAMCITY_LOGS=/opt/teamcity/logs
     
-ADD https://download.jetbrains.com/teamcity/TeamCity-2019.2.tar.gz $TEAMCITY_DIST/
+ADD https://download.jetbrains.com/teamcity/TeamCity-2020.1.3.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
 RUN rm $TEAMCITY_DIST/TeamCity-*.tar.gz
 RUN mv $TEAMCITY_DIST/TeamCity/* $TEAMCITY_DIST
@@ -23,7 +23,7 @@ COPY run-services.sh /run-services.sh
 COPY server.xml  $TEAMCITY_DIST/conf/server.xml
 RUN chmod +x /run-server.sh /run-services.sh && sync
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.2.5.jar /data/teamcity_server/datadir/lib/jdbc/
+ADD https://jdbc.postgresql.org/download/postgresql-42.2.14.jar /data/teamcity_server/datadir/lib/jdbc/
 
 RUN mv $TEAMCITY_DIST/webapps/ROOT $TEAMCITY_DIST/webapps/teamcity
 
