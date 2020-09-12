@@ -7,12 +7,8 @@ RUN dnf install -y java-1.8.0-openjdk mercurial git tar gzip tomcat apr
 
 ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_DIST=/opt/teamcity \
-    TEAMCITY_LOGS=/opt/teamcity/logs
-    TEAMCITY_SERVER_OPTS = \
-      -Dmail.imaps.ssl.protocols = TLSv1.2 \
-      -Dmail.smtp.ssl.protocols = TLSv1.2 \
-      -Dmail.smtp.starttls.enable = true \
-      -Dmail.smtps.ssl.protocols = TLSv1.2 
+    TEAMCITY_LOGS=/opt/teamcity/logs \
+    TEAMCITY_SERVER_OPTS="-Dmail.imaps.ssl.protocols=TLSv1.2 -Dmail.smtp.ssl.protocols=TLSv1.2 -Dmail.smtp.starttls.enable=true -Dmail.smtps.ssl.protocols=TLSv1.2"
     
 ADD https://download.jetbrains.com/teamcity/TeamCity-2020.1.4.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
