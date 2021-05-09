@@ -24,7 +24,7 @@ COPY run-services.sh /run-services.sh
 COPY server.xml  $TEAMCITY_DIST/conf/server.xml
 RUN chmod +x /run-server.sh /run-services.sh && sync
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.2.14.jar /data/teamcity_server/datadir/lib/jdbc/
+ADD https://jdbc.postgresql.org/download/postgresql-42.2.20.jar /data/teamcity_server/datadir/lib/jdbc/
 
 RUN mv $TEAMCITY_DIST/webapps/ROOT $TEAMCITY_DIST/webapps/teamcity
 
