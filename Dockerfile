@@ -1,8 +1,8 @@
-FROM fedora:32
+FROM fedora:35
 LABEL maintainer "Kateryna Shlyakhovetska <shkate@jetbrains.com>"
 LABEL modified "Alexis Jeandet <alexis.jeandet@member.fsf.org>"
 
-RUN dnf install -y java-1.8.0-openjdk mercurial git tar gzip tomcat apr
+RUN dnf install -y java-11-openjdk mercurial git tar gzip tomcat apr
 
 
 ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
