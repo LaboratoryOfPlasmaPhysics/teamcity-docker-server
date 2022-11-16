@@ -10,7 +10,7 @@ ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_LOGS=/opt/teamcity/logs \
     TEAMCITY_SERVER_OPTS="-Dmail.imaps.ssl.protocols=TLSv1.2 -Dmail.smtp.ssl.protocols=TLSv1.2 -Dmail.smtp.starttls.enable=true -Dmail.smtps.ssl.protocols=TLSv1.2"
     
-ADD https://download.jetbrains.com/teamcity/TeamCity-2022.04.4.tar.gz $TEAMCITY_DIST/
+ADD https://download.jetbrains.com/teamcity/TeamCity-2022.10.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
 RUN rm $TEAMCITY_DIST/TeamCity-*.tar.gz
 RUN mv $TEAMCITY_DIST/TeamCity/* $TEAMCITY_DIST
@@ -24,7 +24,7 @@ COPY run-services.sh /run-services.sh
 COPY server.xml  $TEAMCITY_DIST/conf/server.xml
 RUN chmod +x /run-server.sh /run-services.sh && sync
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.3.1.jar /data/teamcity_server/datadir/lib/jdbc/
+ADD https://jdbc.postgresql.org/download/postgresql-42.5.0.jar /data/teamcity_server/datadir/lib/jdbc/
 
 RUN mv $TEAMCITY_DIST/webapps/ROOT $TEAMCITY_DIST/webapps/teamcity
 
