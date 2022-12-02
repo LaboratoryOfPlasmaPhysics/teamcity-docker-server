@@ -1,4 +1,4 @@
-FROM fedora:35
+FROM fedora:37
 LABEL maintainer "Kateryna Shlyakhovetska <shkate@jetbrains.com>"
 LABEL modified "Alexis Jeandet <alexis.jeandet@member.fsf.org>"
 
@@ -10,7 +10,7 @@ ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_LOGS=/opt/teamcity/logs \
     TEAMCITY_SERVER_OPTS="-Dmail.imaps.ssl.protocols=TLSv1.2 -Dmail.smtp.ssl.protocols=TLSv1.2 -Dmail.smtp.starttls.enable=true -Dmail.smtps.ssl.protocols=TLSv1.2"
     
-ADD https://download.jetbrains.com/teamcity/TeamCity-2022.10.tar.gz $TEAMCITY_DIST/
+ADD https://download.jetbrains.com/teamcity/TeamCity-2022.10.1.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
 RUN rm $TEAMCITY_DIST/TeamCity-*.tar.gz
 RUN mv $TEAMCITY_DIST/TeamCity/* $TEAMCITY_DIST
