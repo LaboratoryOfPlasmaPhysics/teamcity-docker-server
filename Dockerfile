@@ -10,7 +10,7 @@ ENV TEAMCITY_DATA_PATH=/data/teamcity_server/datadir \
     TEAMCITY_LOGS=/opt/teamcity/logs \
     TEAMCITY_SERVER_OPTS="-Dmail.imaps.ssl.protocols=TLSv1.2 -Dmail.smtp.ssl.protocols=TLSv1.2 -Dmail.smtp.starttls.enable=true -Dmail.smtps.ssl.protocols=TLSv1.2"
     
-ADD https://download.jetbrains.com/teamcity/TeamCity-2024.03.1.tar.gz $TEAMCITY_DIST/
+ADD https://download.jetbrains.com/teamcity/TeamCity-2024.03.2.tar.gz $TEAMCITY_DIST/
 RUN tar -xf $TEAMCITY_DIST/TeamCity-*.tar.gz -C $TEAMCITY_DIST/
 RUN rm $TEAMCITY_DIST/TeamCity-*.tar.gz
 RUN mv $TEAMCITY_DIST/TeamCity/* $TEAMCITY_DIST
