@@ -24,7 +24,9 @@ COPY run-services.sh /run-services.sh
 COPY server.xml  $TEAMCITY_DIST/conf/server.xml
 RUN chmod +x /run-server.sh /run-services.sh && sync
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.7.10.jar /data/teamcity_server/datadir/lib/jdbc/
+# Not under $TEAMCITY_DATA_PATH: that path is a volume, which hides anything the image puts there.
+# run-server.sh copies it into the data dir's lib/jdbc on every start.
+ADD https://repo1.maven.org/maven2/org/postgresql/postgresql/42.7.13/postgresql-42.7.13.jar $TEAMCITY_DIST/jdbc/
 
 RUN mv $TEAMCITY_DIST/webapps/ROOT $TEAMCITY_DIST/webapps/teamcity
 
