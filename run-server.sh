@@ -21,7 +21,8 @@ install_bundled_jdbc_driver() {
 
 install_bundled_jdbc_driver
 
-export TEAMCITY_SERVER_MEM_OPTS='-Xmx4g -XX:ReservedCodeCacheSize=350m'
+: ${TEAMCITY_SERVER_MEM_OPTS:='-Xmx4g -XX:ReservedCodeCacheSize=350m'}
+export TEAMCITY_SERVER_MEM_OPTS
 
 trap "'${TEAMCITY_DIST}/bin/teamcity-server.sh' stop; exit 0;" SIGTERM SIGINT SIGHUP
 
